@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <style type="text/css">
+    .adminform{
+   
+    }
+    .topnav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function(){
+	 $(".adminform").hide();
+ });
+ $(document).ready(function(){
+	 $(".hideshow").click(function(){
+	        $(".adminform").toggle();
+	        $(".tailorform").toggle();
+	       
+	    }); 
+	});
+ 
+   
+    
+    </script>
+
+    <title>Welcome to Student Payment</title>
+  </head>
+  <body class="bg-dark">
+     <div class="topnav">
+       <div class="topnav-right">
+         <button class="btn btn-danger navbar-btn hideshow"  id="">Login as admin</button>
+         </div>
+       </div> 
+    <div class="container_fluid">
+      <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+             <center><p class="text-danger h3 pt-4 pl-4">student payment system</p></center>
+            <p class="text-warning h3 pt-4 pl-4" th:text="${error}"></p>
+            <p class="text-warning h3 pt-4 pl-4" th:text="${succesful}"></p>
+      
+          <div id="" class="tailorform bg-light p-4 m-4" style="border-style: solid; border-color:white;border-radius:5px;">
+          <form class="" action="/Main" method="post">
+                <center class="text-danger h4">Tailor</center>
+                <center class="pb-4">login</center>
+                <div class="form-group">
+                  <input class="form-control  form-control-lg" required="required" type="text" name="sname" value="" placeholder="username">
+
+
+                </div>
+                <div class="form-group">
+                  <input class="form-control  form-control-lg" required="required" type="password" name="spassword" value="" placeholder="password">
+
+                </div>
+                <button class="btn btn-success btn-lg btn-block"  type="submit" name="button">Login</button>
+              </form>
+              </div>
+              <div class="adminform bg-light p-4 m-4" style="border-style: solid; border-color:white;border-radius:5px;">
+            <form id="" class=""  action="/admin" method="post">
+              <center class="text-danger h4">Admin</center>
+              <center class="pb-4">login</center>
+              <div class="form-group">
+                <input class="form-control  form-control-lg" type="text" name="aname" value="" required="required" placeholder="username">
+
+
+              </div>
+              <div class="form-group">
+                <input class="form-control  form-control-lg" type="password" required="required" name="apassword" value="" placeholder="password">
+
+              </div>
+              <button class="btn btn-success btn-lg btn-block" type="submit" >Login</button>
+            </form>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+           
+         
+        </div>
+        
+
+
+      </div>
+
+    </div>
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </body>
+</html>

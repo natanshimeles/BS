@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    $("#date").change(function(){
+        $(".hideshowdate").toggle();
+        });
+    });
+     </script>
+    <title>Welcome Admin</title>
+  </head>
+<body class="bg-dark text-light ">
+
+<div class="container-fluid pb-4">
+  <center><p class="h2 text-warning">Student Payment System</p></center>
+  <div class="row">
+    <div class="col-md-1">
+    
+    
+      
+    </div>
+    <div class="col-md-3">
+      <p class="h3 text-success">Register school </p>
+      <form action="/registerschool" method="post" >
+        <div class="form-group">
+          <input type="text" name="schoolname" required="required" class="form-control" placeholder="school name" >
+        </div>
+        <div class="form-group">
+          <input type="text" name="schooladdress" required="required" class="form-control" placeholder="school address" >
+        </div>
+     
+        <button class="btb btn-success btn-lg btn-block">save</button>
+      </form>
+      
+      <form class="pt-4" action="/regiternewpayment" method="post">
+       <p class="h3 text-success">New Payment Type</p>
+       <div class="form-group">
+         <input type="text" name="type" required="required" class="form-control" placeholder="Payment Type">
+       </div>
+       <div class="form-group">
+         
+         <input  name="desc" type="text" class="form-control"  placeholder="Payment Description"    required="required" >
+         
+       </div>
+       <button type="submit" class="btn btn-success btn-lg btn-block" >save</button>
+     
+     </form>
+     <form class="pt-4" method="post" action="/updatedeadline">
+        <p class="text-success h3">update monthly payment deadlines</p>
+           
+        <div class="form-group">
+           
+           <select class="form-control" name="school" >
+             <option th:each="school:${schools}" th:text="${school}" th:value="${school}">
+             </option>
+           </select>
+     
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="date" name="deadline" placeholder="deadline">
+     
+         </div>
+         <div class="form-group">
+          <select class="form-control" name="paymenttext" >
+             <option th:each="payment:${payments}" th:text="${payment}" th:value="${payment}">
+             </option>
+           </select>
+          
+         
+     
+         </div>
+         <button class="btn btn-lg btn-block btn-success">update</button>
+      </form>
+    
+      
+    </div>
+    <div class="col-md-4">
+      <form action="/createuser" method="post">
+       <p class="h3 text-success">Create new user</p>
+         
+        <div class="form-group">
+          <input type="text" class="form-control" required="required" name="firstname" placeholder="First Name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" required="required" name="lastname" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" required="required" name="branch" placeholder="Branch">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" required="required" name="username" placeholder="User Name">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" required="required" name="password" placeholder="PassWord">
+        </div>
+        <button type="submit" class="btn btn-success btn-lg btn-block">create</button>
+      
+      </form>
+      
+     
+    </div>
+    
+    <div class="col-md-3">
+    <form class="" method="post" action="/savenewpaymentdetail">
+       <p class="h3 text-success">New Payment Detail</p>
+       <div class="form-group">
+       <div class="form-group">
+         <input placeholder="student id" type="text" required="required"  name="studentid" class="form-control">
+       </div>
+         <input placeholder="first name" type="text" required="required"  name="firstname" class="form-control">
+       </div>
+        <div class="form-group">
+         <input placeholder="last name" type="text" required="required" name="lastname" class="form-control">
+       </div>
+       <div class="form-group">
+          <select class="form-control" name="school" >
+             <option th:each="school:${schools}" th:text="${school}" th:value="${school}">
+             </option>
+           </select>
+       </div>
+        <div class="form-group">
+        <select class="form-control" name="paymenttype" >
+             <option th:each="payment:${payments}" th:text="${payment}" th:value="${payment}">
+             </option>
+           </select>
+         
+       </div>
+        <div class="form-group">
+         <input placeholder="amount " type="number" required="required" name="paymentamount" class="form-control">
+       </div>
+        <div class="form-group">
+        <label>dead line</label>
+         <input placeholder="deadline"  type="date" required="required" name="deadline"  class="form-control">
+       </div>
+       <div class="form-group">
+         <input placeholder="amount  time in days" required="required" type="number" name="amounttime" class="form-control">
+       </div> 
+       <div class="form-group">
+         <input placeholder="amount to pay per time" type="number" required="required" name="amountpertime" class="form-control">
+       </div>
+              
+       <div id="date" class="form-group">
+         <select  class="form-control" name="whattype">
+         
+           <option value="All year long">All year long</option>
+           <option value="just for this month">Just for this month</option>
+           
+         </select>
+       </div>
+       <div class="hideshowdate form-group">
+         <select  class="form-control" name="forhowmanymonth">
+           <option value="every month">Every month</option>
+           <option value="every 3 month">Every 3 month</option>
+           <option value="every 6 month">every 6 month</option>
+         </select>
+       </div>
+       
+       <button type="submit" class="btn btn-lg btn-success btn-block">save</button>
+     
+     </form>
+      
+    </div>
+    <div class="col-md-1">
+   <a href="admin/logout" class="btn btn-warning ">exit</a> 
+    </div>
+  </div>
+  <div class="row">
+   <div class="col-md-1">
+   
+   </div>
+   <div class="col-md-3">
+
+   </div>
+   <div class="col-md-4">
+     
+   
+   </div>
+  
+  
+  </div>
+  
+  
+</div>
+
+</body>
+</html>
