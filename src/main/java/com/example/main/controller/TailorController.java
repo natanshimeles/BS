@@ -143,8 +143,9 @@ public class TailorController {
 	
 	@GetMapping("/Main")
 	public String adminverify(Model error,Model params) {
+		String schools[]= searchschools.getschool();
 		if(model.containsAttribute("myusername_server_ip_tailor_controller")) {
-			String schools[]= searchschools.getschool();
+			
 			params.addAttribute("schools", schools);    
 			return "Main";
 		}

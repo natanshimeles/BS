@@ -15,14 +15,33 @@
         });
     });
      </script>
+     
+     <script>
+       function startTime() {
+    	   var today = new Date();
+           var h = today.getHours();
+           var m = today.getMinutes();
+           var s = today.getSeconds();
+           m = checkTime(m);
+           s = checkTime(s);
+           document.getElementById('txt').innerHTML =
+           h + ":" + m + ":" + s;
+           var t = setTimeout(startTime, 500);
+           }
+       function checkTime(i) {
+    	   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+           return i;
+    	   }
+      </script>
     <title>Welcome Admin</title>
   </head>
-<body class="bg-dark text-light ">
+<body class="bg-dark text-light " onload="startTime()">
 
 <div class="container-fluid pb-4">
   <center><p class="h2 text-warning">Student Payment System</p></center>
   <div class="row">
     <div class="col-md-1">
+    
     
     
       
@@ -169,6 +188,7 @@
       
     </div>
     <div class="col-md-1">
+    <p id="txt" class="text-warning"></p>
    <a href="admin/logout" class="btn btn-warning ">exit</a> 
     </div>
   </div>
@@ -189,6 +209,25 @@
   
   
 </div>
+
+
+   
+<!-- As a link -->
+<nav class="navbar navbar-light bg-success sticky-bottom" style="opacity: 0.7;">
+  <span class="align-text-bottom">
+    <a class="navbar-brand text-warning" href="https://www.orointbank.com/">Oromia International Bank &copy</a>
+    
+    
+  </span>
+   
+  
+</nav>
+
+
+
+
+
+
 
 </body>
 </html>
